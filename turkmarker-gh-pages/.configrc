@@ -34,9 +34,9 @@ HighlightColour = #FFFF00
 # ResultsFolder = ./results
 
 [AWS-MTURK]
-EndPoint = https://mturk-requester-sandbox.us-east-1.amazonaws.com
+# EndPoint = https://mturk-requester-sandbox.us-east-1.amazonaws.com
 # Uncomment the next line for production use
-# EndPoint = https://mturk-requester.us-east-1.amazonaws.com
+EndPoint = https://mturk-requester.us-east-1.amazonaws.com
 Region = us-east-1
 
 # Configure these details!
@@ -50,7 +50,7 @@ HIT_Reward = 1.00
 
 # Number of times the HIT can be completed before
 # it expires
-HIT_Max_Assignments = 20
+HIT_Max_Assignments = 1 
 
 # Time allowed to complete the HIT in seconds
 # 
