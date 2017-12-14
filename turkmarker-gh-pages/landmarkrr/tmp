@@ -1,0 +1,59 @@
+        // All samples have been completed, time to submit
+        else{
+            var results = JSON.stringify(this.testRun);
+            var activityLog = JSON.stringify(this.logger);
+
+            $("#check-warning-message").attr({
+                class: "alert alert-success", 
+                style: "visibility: visible;"});
+
+            // Make the submit button visible to allow submission.
+            // if this is a SERVER based task 
+            if (this.assignmentType == ASSIGNMENT_TYPES.SERVER){
+                $("#results").val(results);
+                $("#activity_log").val(activityLog);
+                $("#submitButton").attr({
+                    style: "visibility: visible;"});
+                $("#nextButton").attr({
+                    style: "visibility: hidden;"});
+
+                $("#check-warning-message").append(
+                    "Press Submit to complete the task.  Thank you!");
+
+                this.logger.addMsg("Ready to submit");
+            }
+            // Not a mechanical turk task, download the data
+            else {
+
+                var textFile = null,
+                //this.logger.addMsg("Data ready for download");
+
+                makeTextFile = function (text) {
+                    var data = new Blob([text], {type: 'text/json'});
+
+                    // If we are replacing a previously generated file we need to
+                    // manually revoke the object URL to avoid memory leaks.
+                    if (textFile !== null) {
+                      window.URL.revokeObjectURL(textFile);
+                    }
+
+                    textFile = window.URL.createObjectURL(data);
+
+                    // returns a URL you can use as a href
+                    return textFile;
+                };
+
+                var data = {
+                    results: this.testRun,
+                    activityLog: this.logger,
+                }
+                // Create download file
+                $("#no_turk_data").attr({
+                    download: this.assignmentId + ".json",
+                    href: makeTextFile(JSON.stringify(data)),
+                    style: "visiblity: visible;"});
+                $("#check-warning-message").append(
+                    "The data is ready for downloading! Please click on the link.  Thank you!");
+            }
+        }
+

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Mechanical Turk Facial Landmarking</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+        <div style="padding-left: 10px;">
+            <h2>Face Landmarking Task:: Please click to <b><a href="protocol.html" target='_blank'>read the instructions</a></b> before you start!</h2>
+
+            <div class="alert alert-error">
+                <h5>This is a preview.</h5><p>Please accept the HIT <strong>before beginning work.</strong><p></p>Recommended browsers:
+                Firefox 42, Chrome 35, Safari 9, or later.</p>
+            </div>
+
+            <p>
+                <b>Keyboard shortcuts:</b> Use <code>f</code> to advance to the next step, <code>b</code> to go back,
+                <code>h</code> to toggle landmark visibility
+            </p>
+
+
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>            
+
+            <div class="btn-toolbar">
+                <input type="hidden" name="active-tool" id="active-tool" value=""/>
+                <div id="toolbox" class="btn-group tools" data-toggle="buttons"></div>
+            </div>
+
+            <form method="POST" class="form-inline" id="mturk_form" name="mturk_form">
+                <div style="padding-top:10px;">
+                    <button id="toggleLandmarks" class="btn btn-primary" style="padding: 10px;">Hide All Landmarks</button>
+                    <button type="button" id="nextButton" class="btn btn-primary" style="padding: 10px; visibility: hidden;">Next Image</button>
+                    <button type="submit" id="submitButton" class="btn btn-success" style="padding: 10px; visibility: hidden;">Submit</button>
+                </div>
+
+                <div class="alert alert-warning" role="alert" id="check-warning-message" style="margin-top: 20px; visibility: visible"></div>
+                <a id="no_turk_data" style="visibility: hidden">Click here to download data</a>
+                <div id="appbox" style="padding: 10px;">
+                    <div id="canvasbox"></div>
+                    <img id="canvasbg"><img id="canvaseg" style="padding-left: 10px;">
+
+                    <div id="infobox">
+                        <div id="infobox-content">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="submitbox">
+                    <input type="hidden" id="assignmentId" name="assignmentId">
+                    <input type="hidden" id="activity_log" name="activity_log">
+                    <input type="hidden" id="results" name="results">
+                </div>
+            </form>
+        </div>
+
+        <link href="./static/base.css" rel="stylesheet">
+        <script src="./static/data.js"></script>
+        <script src="./static/draw.js"></script>
+        <script src="./static/toolbox.js"></script>
+        <script src="./static/logger.js"></script>
+        <script src="./static/manager.js"></script>
+
+        <!-- Disable zooming -->
+
+        <script>
+            $(document).keydown(function(event) {
+                // 107 Num Key  +
+                // 109 Num Key  -
+                // 173 Min Key  hyphen/underscor Hey
+                // 61 Plus key  +/= key
+                if (event.ctrlKey==true && (event.which == '61' || event.which == '107'
+                    || event.which == '173' || event.which == '109' 
+                    || event.which == '187'  || event.which == '189') ) {
+                        event.preventDefault();}
+            });
+
+            $(window).bind('mousewheel DOMMouseScroll', function (event) {
+                if (event.ctrlKey == true) {
+                    event.preventDefault();}
+            });
+
+        </script>
+
+        <!-- Initialise -->
+        <script>
+            var manager = new Manager();
+            manager.init("./static/config.json");
+        </script>
+        </div>
+
+   </body>
+</html>
+
