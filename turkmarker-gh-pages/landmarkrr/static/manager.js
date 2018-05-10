@@ -226,8 +226,7 @@ Manager.prototype = {
             style: "padding: 10px; visibility: hidden;"});
 
         // If there is a next sample use it
-        if (0){
-        //if (sample){
+        if (sample){
 
             // Update the canvas
             this.canvas.updateCanvasSet(sample, this);
@@ -315,8 +314,6 @@ Manager.prototype = {
         // Apply config details from address bar
         // Get the mechanical turk details
         this.assignmentId = get_param('assignment_id');
-        this.hitId = get_param('hitId');
-        this.workerId = get_param('workerId');
         loadConfigFromFile(this.config, this); // Load config
 
         // Enable canvas mouse clicks
