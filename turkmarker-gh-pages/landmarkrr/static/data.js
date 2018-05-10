@@ -247,7 +247,7 @@ function configCallBack(data, manager){
     );
 
     // Assignment is SERVER based with id and submission info 
-    var ass_id = get_param('assignment_id');
+    var ass_id = get_param('assignmentId');
     if (ass_id && manager.action && (manager.assignmentType == ASSIGNMENT_TYPES.SERVER)){
         manager.logger.addMsg("Valid MTurk assignment");
 
