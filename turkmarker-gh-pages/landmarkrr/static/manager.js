@@ -248,7 +248,8 @@ Manager.prototype = {
 
             // Make the submit button visible to allow submission.
             // if this is a SERVER based task 
-            if (this.assignmentId && this.assignmentType == ASSIGNMENT_TYPES.SERVER){
+            var ass_id = get_param('assignment_id');
+            if (ass_id && this.assignmentType == ASSIGNMENT_TYPES.SERVER){
                 $("#results").val(results);
                 $("#activity_log").val(activityLog);
                 $("#submitButton").attr({
