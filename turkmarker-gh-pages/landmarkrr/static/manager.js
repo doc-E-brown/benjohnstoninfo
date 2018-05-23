@@ -263,6 +263,7 @@ Manager.prototype = {
             if (ass_id && this.assignmentType == ASSIGNMENT_TYPES.SERVER){
                 $("#results").val(results);
                 $("#activity_log").val(activityLog);
+                $("#assignmentId").val(ass_id);
                 $("#submitButton").attr({
                     style: "padding: 10px; visibility: visible;"});
                 $("#nextButton").attr({
