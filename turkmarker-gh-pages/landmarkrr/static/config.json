@@ -1,7 +1,9 @@
 {
     "replicates": 3,
     "assignmentType": "SERVER",
-    "form_action": "https://workersandbox.mturk.com/mturk/externalSubmit",
+    "action": "https://workersandbox.mturk.com/mturk/externalSubmit",
+    "form_action": "https://workersandbox.mturk.com",
+
     "drawing": {
         "validFillColour": "rgba(255, 255, 255, 1)",
         "validStrokeColour": "rgba(104, 191, 63, 1)",
@@ -110,14 +112,24 @@
                     "y": 749.5,
                     "distLim": 28.833314065504158
                 },
+                "P28": {
+                    "x": 588,
+                    "y": 533,
+                    "distLim": 28.83
+                },
                 "P70": {
                     "x": 535,
                     "y": 795,
                     "distLim": 28.83
                 },
-                "P28": {
-                    "x": 588,
-                    "y": 533,
+                "P71": {
+                    "x": 463,
+                    "y": 475,
+                    "distLim": 28.83
+                },
+                "P72": {
+                    "x": 715,
+                    "y": 515,
                     "distLim": 28.83
                 }
             }
@@ -226,6 +238,16 @@
                     "x": 604,
                     "y": 543,
                     "distLim": 47
+                },
+                "P71": {
+                    "x": 443,
+                    "y": 166,
+                    "distLim": 30
+                },
+                "P72": {
+                    "x": 726,
+                    "y": 152,
+                    "distLim": 30
                 }
             }
         },
@@ -324,15 +346,25 @@
                     "y": 375.8,
                     "distLim": 58.07030222067043
                 },
+                "P28": {
+                    "x": 254,
+                    "y": 145,
+                    "distLim": 58
+                },
                 "P70": {
                     "x": 260,
                     "y": 441,
                     "distLim": 58
                 },
-                "P28": {
-                    "x": 254,
-                    "y": 145,
-                    "distLim": 58
+                "P71": {
+                    "x": 178,
+                    "y": 163,
+                    "distLim": 26
+                },
+                "P72": {
+                    "x": 347,
+                    "y": 138,
+                    "distLim": 26
                 }
             }
         },
@@ -431,14 +463,24 @@
                     "y": 453.7,
                     "distLim": 20
                 },
+                "P28": {
+                    "x": 254,
+                    "y": 355,
+                    "distLim": 20
+                },
                 "P70": {
                     "x": 259,
                     "y": 478,
                     "distLim": 20
                 },
-                "P28": {
-                    "x": 254,
-                    "y": 355,
+                "P71": {
+                    "x": 209,
+                    "y": 360,
+                    "distLim": 20
+                },
+                "P72": {
+                    "x": 301,
+                    "y": 354,
                     "distLim": 20
                 }
             }
