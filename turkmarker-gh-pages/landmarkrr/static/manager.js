@@ -259,7 +259,7 @@ Manager.prototype = {
 
             // Make the submit button visible to allow submission.
             // if this is a SERVER based task 
-            var ass_id = get_param('assignment_id');
+            var ass_id = get_param('assignmentId');
             if (ass_id && this.assignmentType == ASSIGNMENT_TYPES.SERVER){
                 $("#results").val(results);
                 $("#activity_log").val(activityLog);
@@ -325,7 +325,7 @@ Manager.prototype = {
 
         // Apply config details from address bar
         // Get the mechanical turk details
-        this.assignmentId = get_param('assignment_id');
+        this.assignmentId = get_param('assignmentId');
         loadConfigFromFile(this.config, this); // Load config
 
         // Enable canvas mouse clicks
