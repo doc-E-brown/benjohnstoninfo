@@ -7,7 +7,18 @@ var ASSIGNMENT_TYPES = {
 }
 
 // Retrieve GET parameters from address bar
-function get_param(param, default_value) {
+function get_param(parameterName, default_value){
+    var result = null,
+        tmp = [];
+    var items = location.search.substr(1).split("&");
+    for (var index = 0; index < items.length; index++) {
+        tmp = items[index].split("=");
+        if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+    }
+    return result;
+}
+    
+function _get_param(param, default_value) {
     "use strict";
     var res = new RegExp(param + "=([^&#]*)").exec(window.location.search);
     return res && decodeURIComponent(res[1]) || default_value || "";
