@@ -1,8 +1,8 @@
 {
     "replicates": 3,
     "assignmentType": "SERVER",
-    "action": "https://workersandbox.mturk.com/mturk/externalSubmit",
-    "form_action": "https://workersandbox.mturk.com",
+    "action": "https://mturk.com/mturk/externalSubmit",
+    "form_action": "https://mturk.com",
 
     "drawing": {
         "validFillColour": "rgba(255, 255, 255, 1)",
