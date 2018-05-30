@@ -328,6 +328,9 @@ Manager.prototype = {
         // Get the mechanical turk details
         this.assignmentId = get_param('assignmentId');
         loadConfigFromFile(this.config, this); // Load config
+        var action = get_param('turkSubmitTo');
+        console.log(action);
+        $('$mturk_form')[0].action = action;
 
         // Enable canvas mouse clicks
         manager = this;

@@ -207,7 +207,7 @@ function configCallBack(data, manager){
 
     // Parse the config data
     manager.assignmentType = data['assignmentType'];
-    manager.action = data['form_action']
+    // manager.action = data['form_action']
 
     // Parse the drawing configuration
     for (param in data['drawing']){
