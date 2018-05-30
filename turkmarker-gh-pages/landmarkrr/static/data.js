@@ -120,9 +120,15 @@ Sample.prototype = {
 
             // If distance is greater than limit add landmark to list
             // of invalid landmarks
-            if (dist > this.landmarks[x].distLim){ idx = 0; }
+            if (dist > this.landmarks[x].distLim){
+                idx = 0;
+                $("#label_" + this.landmarks[x].id).css("text-decoration", "none");
+            }
             // else add to list of valid landmarks
-            else { idx = 1; }
+            else {
+                idx = 1;
+                $("#label_" + this.landmarks[x].id).css("text-decoration", "line-through");
+            }
 
             result[idx].push(this.landmarks[x]);
         }
