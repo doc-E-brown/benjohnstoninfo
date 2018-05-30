@@ -207,13 +207,12 @@ TestRun.prototype = {
 }
 
 function configCallBack(data, manager){
-    var samp = null, action = null, sample = null, lmrk = null;
+    var samp = null, sample = null, lmrk = null;
     var landmark = null;
     var currLandmarkId = null;
 
     // Parse the config data
     manager.assignmentType = data['assignmentType'];
-    // manager.action = data['form_action']
 
     // Parse the drawing configuration
     for (param in data['drawing']){
@@ -254,11 +253,8 @@ function configCallBack(data, manager){
 
     // Assignment is SERVER based with id and submission info 
     var ass_id = get_param('assignmentId');
-    if (ass_id && manager.action && (manager.assignmentType == ASSIGNMENT_TYPES.SERVER)){
+    if (ass_id &&  (manager.assignmentType == ASSIGNMENT_TYPES.SERVER)){
         manager.logger.addMsg("Valid MTurk assignment");
-
-        // Update form submission
-        $("#mturk_form")[0].action = manager.action + "/mturk/externalSubmit";
 
         // Hide the warning message
         $(".alert").hide();
@@ -276,10 +272,9 @@ function configCallBack(data, manager){
     // Invalid assignment configuration
     // The system will still work, but the warning message will appear
     else {
-        manager.logger.addMsg("Invalid assignment ID and action");
+        manager.logger.addMsg("Invalid assignment ID and type");
         manager.logger.addMsg("assignmentType: " + manager.assignmentType);
         manager.logger.addMsg("assignmentId: " + ass_id);
-        manager.logger.addMsg("action: " + manager.action);
     }
 
 
