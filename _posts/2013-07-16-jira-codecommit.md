@@ -1,4 +1,9 @@
-# Connecting JIRA to codecommit without the use of AWS CodeStar
+---
+layout: post
+title:  "Connecting JIRA to codecommit without the use of AWS CodeStar"
+date:   2019-07-16 20:07:42 +1000---
+categories: AWS CodeCommit JIRA
+---
 
 So you are hosting your git repo in AWS CodeCommit and would like to add some issue tracking / project management to the repo.  Currently AWS doesn't offer any of its own services and thus we will need to hook in some 3rd party services such as [Atlassian's JIRA](https://www.atlassian.com/software/jira) and [GitHub](https://github.com/).   Connecting JIRA to CodeCommit is reasonably straightforward and if you would like to use AWS CodeStart templates there is good documentation available from both [Atlassian](https://www.atlassian.com/blog/jira-software/jira-software-integrates-with-aws-codestar) as well as in the CodeStar setup process itself.
 
