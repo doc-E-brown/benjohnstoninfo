@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Connecting JIRA to codecommit without the use of AWS CodeStar
+date:   2019-07-16 20:07:42 +1000---
+categories: AWS CodeCommit JIRA
 ---
 
 # {{ page.title }}
