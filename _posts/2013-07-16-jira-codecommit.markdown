@@ -51,14 +51,17 @@ We are first going to create a separate user with roles limited to CodeCommit in
 14. Click Next.
 15. Confirm the list of repositorys discovered by JIRA is what you would expect for the connection.  Click Next.
 16. In the next screen you can choose some project permissions.  If you would like all JIRA projects access to the CodeCommit repos just click Next.  If you would like to grant access to the repos to a list of specific JIRA projects untick the check box and type the name of the projects in the field shown below.
+
 ![proj_perms](/assets/proj_perms.png)
 
 ## Et Voila!!!
 
 At this job JIRA is hooked into the CodeCommit and you should notice that the git integration app is indexing your repos.
+
 ![git_index](/assets/git_index.png)
 
 If you have any commits in your git repo referencing existing issues you will notice that these commits and branches start to show up in your issues.
+
 ![issue_commits](/assets/issue_commits.png)
 
 
