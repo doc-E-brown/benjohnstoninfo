@@ -61,4 +61,5 @@ At this job JIRA is hooked into the CodeCommit and you should notice that the gi
 If you have any commits in your git repo referencing existing issues you will notice that these commits and branches start to show up in your issues.
 ![issue_commits](/assets/issue_commits.png)
 
+
 Try creating a commit with a issue reference and you will notice it shows up in the JIRA ticket!!
