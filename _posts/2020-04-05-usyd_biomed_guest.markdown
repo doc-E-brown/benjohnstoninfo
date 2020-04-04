@@ -6,9 +6,8 @@ categories: talks USYD uni guest lecture
 ---
 
 # USYD Biomed Guest Lecture
-
-## Ben Johnston
-### 31st March 2020
+**Ben Johnston**
+*31st March 2020*
 
 # About Me
 
@@ -28,7 +27,7 @@ categories: talks USYD uni guest lecture
 
 
 # Harrison.ai
-![image.png](attachment:image.png)
+![image.png](https://static.wixstatic.com/media/8c8c37_94c852aa24434e2a9d78fa2b53137f4a~mv2.png/v1/fill/w_226,h_39,al_c,q_85,usm_0.66_1.00_0.01/logo%20(2).webp)
 
 [https://www.harrison.ai/](https://www.harrison.ai/)
 
