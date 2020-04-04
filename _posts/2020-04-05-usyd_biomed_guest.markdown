@@ -26,7 +26,6 @@ categories: talks USYD uni guest lecture
   * [SQL for Data Analytics](https://www.amazon.com.au/SQL-Data-Analytics-Upom-Malik/dp/1789807352/ref=sr_1_2?keywords=benjamin+johnston+packt&qid=1586010819&sr=8-2)
 
 
-# Harrison.ai
 ![image.png](https://static.wixstatic.com/media/8c8c37_94c852aa24434e2a9d78fa2b53137f4a~mv2.png/v1/fill/w_226,h_39,al_c,q_85,usm_0.66_1.00_0.01/logo%20(2).webp)
 
 [https://www.harrison.ai/](https://www.harrison.ai/)
@@ -34,13 +33,10 @@ categories: talks USYD uni guest lecture
 *Harrison.ai is a clinician-led healthcare artificial intelligence (AI) company. Our mission is to continuously innovate and commercialise more efficient and affordable healthcare products and services for healthcare providers and patients. Harrison.ai uniquely combines exceptional deep learning expertise with clinical experience to develop and deploy healthcare AI solutions*
 
 
-## Existing Products
-* [Ivy for IVF](https://video.wixstatic.com/video/03353b_a52cb105ee474c419e4f68d3869f849c/720p/mp4/file.mp4)
+* **Existing products**
+  * [Ivy for IVF](https://video.wixstatic.com/video/03353b_a52cb105ee474c419e4f68d3869f849c/720p/mp4/file.mp4)
 
-## Current Focus
-* Radiology
-
-# Deep Learning Tips and Tricks
+## Deep Learning Tips and Tricks
 
 1. Know your data!!!!
 2. Carefully consider how you split your data.
@@ -50,10 +46,10 @@ categories: talks USYD uni guest lecture
 6. Source control: data + source code
 7. Data augmentation
 
-# Kaggle
+## Kaggle
 
 * Great for practice and trying new techniques
 * Great for job hunting and advertising
 * Bad for creating a product
 
-# Q&A
+## Q&A
