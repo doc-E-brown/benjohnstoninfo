@@ -9,13 +9,13 @@ categories: talks USYD uni guest lecture
 **Ben Johnston**
 *31st March 2020*
 
-# About Me
+## About Me
 
-## Education
+### Education
 * USYD Alumni - Eng. (Mechatronics) + Med Sc.
 * PhD candidate (finishing this year 🤞)
 
-## Professional
+### Professional
 * BTI (Co-founder)
 * Cochlear (Snr Mechatronics Engineer)
 * ResMed (Snr Design Engineer)
