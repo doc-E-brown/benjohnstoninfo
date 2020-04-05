@@ -1,0 +1,71 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Posts on Ben Johnston @ Home</title>
+        <link>https://benjohnston.info/posts/</link>
+        <description>Recent content in Posts on Ben Johnston @ Home</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+        <lastBuildDate>Tue, 16 Jul 2019 00:00:00 +0000</lastBuildDate>
+        <atom:link href="https://benjohnston.info/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Connecting JIRA to codecommit without the use of AWS CodeStar</title>
+            <link>https://benjohnston.info/posts/2019/07/connecting-jira-to-codecommit-without-the-use-of-aws-codestar/</link>
+            <pubDate>Tue, 16 Jul 2019 00:00:00 +0000</pubDate>
+            
+            <guid>https://benjohnston.info/posts/2019/07/connecting-jira-to-codecommit-without-the-use-of-aws-codestar/</guid>
+            <description>So you are hosting your git repo in AWS CodeCommit and would like to add some issue tracking / project management to the repo. Currently AWS doesn&amp;rsquo;t offerin/ben-johnston-98085910/ any of its own services and thus we will need to hook in some 3rd party services such as Atlassian&amp;rsquo;s JIRA and GitHub. Connecting JIRA to CodeCommit is reasonably straightforward and if you would like to use AWS CodeStart templates there is good documentation available from both Atlassian as well as in the CodeStar setup process itself.</description>
+            <content type="html"><![CDATA[<p>So you are hosting your git repo in AWS CodeCommit and would like to add some issue tracking / project management to the repo.  Currently AWS doesn&rsquo;t offerin/ben-johnston-98085910/ any of its own services and thus we will need to hook in some 3rd party services such as <a href="https://www.atlassian.com/software/jira">Atlassian&rsquo;s JIRA</a> and <a href="https://github.com/">GitHub</a>.   Connecting JIRA to CodeCommit is reasonably straightforward and if you would like to use AWS CodeStart templates there is good documentation available from both <a href="https://www.atlassian.com/blog/jira-software/jira-software-integrates-with-aws-codestar">Atlassian</a> as well as in the CodeStar setup process itself.</p>
+<p>One limitation of CodeStar at the moment is that it can only be used when setting up a fresh repository and cannot be used against an existing repo.  If this is the case or you simply do not want to use CodeStar for the issue tracking integration this post will walk through the process of setting up issue tracking without the use of CodeStar.</p>
+<p>To complete this process you will need:</p>
+<ul>
+<li>An AWS account with FullAccess permissions to CodeCommit</li>
+<li>An AWS account with SNS (Simple Notification Service) permissions</li>
+<li>Ideally an AWS account with permissions to setup additional users.</li>
+<li>A JIRA cloud instance with admin rights.  If you want to just try it out you can set up a trial account for free at <a href="https://www.atlassian.com/try">https://www.atlassian.com/try</a>.</li>
+</ul>
+<p>The process will assume:</p>
+<ul>
+<li>You have access to and have already setup the requirements listed above e.g. AWS accounts and JIRA cloud instances.</li>
+<li>A basic understanding AWS IAM roles.</li>
+</ul>
+<h2 id="lets-get-started">Let&rsquo;s get started.</h2>
+<p>We are first going to create a separate user with roles limited to CodeCommit in the spirit of principle of least privilege.</p>
+<ol>
+<li>Log into the Identify and Access Management (IAM) page of AWS.</li>
+<li>Click Add User</li>
+<li>Create a user with an appropriate user name and ensure the <strong>Programmatic access</strong> checkbox is ticked.
+<img src="/assets/create_user.png" alt="create_user"></li>
+<li>Click Next: Permissions</li>
+<li>If you have existing permissions you would like to use select those.  If you are unsure add the <em>AWSCodeCommitPowerUser</em> and <em>AmazonSNSFullAccess</em> permissions, they will be enough to get you started.  The AWSCodeCommitPowerUser permissions are used to allow for branches, merges etc to be created or reviewed from JIRA.  The SNS permissions are required to allow the git integration app to setup the webhooks for you for automatic updates whenever a repo is touched.  <strong>You should review these permissions to ensure they are appropriate and satisfy security requirements</strong>.
+<img src="/assets/user_perms.png" alt="user_perms"></li>
+<li>Add any tags you would like to attach to the user.</li>
+<li>Create the user.
+<img src="/assets/add_user.png" alt="add_user"></li>
+<li>Download the CSV file or copy and paste the Access Key ID and Secret access key as you will need these later.
+<img src="/assets/user_creds.png" alt="user_creds"></li>
+<li>Open your JIRA cloud instance click on the settings icon in the bottom left hand side of the screen.
+<img src="/assets/jira_settings.png" alt="jira_settings"></li>
+<li>Click on the Apps section of the settings menu.</li>
+<li>Click on <strong>Find new apps</strong> and search for or simply select <strong>Git Integration for JIRA</strong>.  Note that <strong>Git Integration for JIRA</strong> is a paid app and can be used for a 7 day trial without restrictions or payment.
+<img src="/assets/git_integration.png" alt="git_integration"></li>
+<li>Once the app is installed click on the connect to repository drop down menu and select AWS CodeCommit
+<img src="/assets/add_repo.png" alt="add_repo"></li>
+<li>Enter the AWS CodeCommit region for the repo you would like to connect to as well as the AWS Access Key and Secret access key that you created for the user above.
+<img src="/assets/code_commit_creds.png" alt="code_commit_creds"></li>
+<li>Click Next.</li>
+<li>Confirm the list of repositorys discovered by JIRA is what you would expect for the connection.  Click Next.</li>
+<li>In the next screen you can choose some project permissions.  If you would like all JIRA projects access to the CodeCommit repos just click Next.  If you would like to grant access to the repos to a list of specific JIRA projects untick the check box and type the name of the projects in the field shown below.</li>
+</ol>
+<p><img src="/assets/proj_perms.png" alt="proj_perms"></p>
+<h2 id="et-voila">Et Voila!!!</h2>
+<p>At this job JIRA is hooked into the CodeCommit and you should notice that the git integration app is indexing your repos.</p>
+<p><img src="/assets/git_index.png" alt="git_index"></p>
+<p>If you have any commits in your git repo referencing existing issues you will notice that these commits and branches start to show up in your issues.</p>
+<p><img src="/assets/issue_commits.png" alt="issue_commits"></p>
+<p>Try creating a commit with a issue reference and you will notice it shows up in the JIRA ticket!!</p>
+]]></content>
+        </item>
+        
+    </channel>
+</rss>

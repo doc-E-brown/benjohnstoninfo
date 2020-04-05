@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://benjohnston.info/talks/2020/03/usyd-biomed-engineering-guest-lecture/</loc>
+    <lastmod>2020-03-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://benjohnston.info/posts/2019/07/connecting-jira-to-codecommit-without-the-use-of-aws-codestar/</loc>
+    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://benjohnston.info/talks/</loc>
+    <lastmod>2020-03-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://benjohnston.info/posts/</loc>
+    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://benjohnston.info/about/</loc>
+    <lastmod>2014-04-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://benjohnston.info/</loc>
+    <lastmod>2014-04-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://benjohnston.info/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://benjohnston.info/tags/</loc>
+  </url>
+  
+</urlset>

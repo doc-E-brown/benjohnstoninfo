@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ben Johnston @ Home</title>
+    <link>https://benjohnston.info/</link>
+    <description>Recent content on Ben Johnston @ Home</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 09 Apr 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://benjohnston.info/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>USYD Biomed Engineering Guest Lecture</title>
+      <link>https://benjohnston.info/talks/2020/03/usyd-biomed-engineering-guest-lecture/</link>
+      <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://benjohnston.info/talks/2020/03/usyd-biomed-engineering-guest-lecture/</guid>
+      <description>About Me Education  USYD Alumni - Eng. (Mechatronics) + Med Sc. PhD candidate (finishing this year 🤞)  Professional  BTI (Co-founder) Cochlear (Snr Mechatronics Engineer) ResMed (Snr Design Engineer) Harrison.ai (Snr AI Engineer) Author - Data Science and ML books  Applied Supervised Learning in Python Applied Unsupervised Learning in Python SQL for Data Analytics    https://www.harrison.ai/
+Harrison.ai is a clinician-led healthcare artificial intelligence (AI) company. Our mission is to continuously innovate and commercialise more efficient and affordable healthcare products and services for healthcare providers and patients.</description>
+    </item>
+    
+    <item>
+      <title>Connecting JIRA to codecommit without the use of AWS CodeStar</title>
+      <link>https://benjohnston.info/posts/2019/07/connecting-jira-to-codecommit-without-the-use-of-aws-codestar/</link>
+      <pubDate>Tue, 16 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://benjohnston.info/posts/2019/07/connecting-jira-to-codecommit-without-the-use-of-aws-codestar/</guid>
+      <description>So you are hosting your git repo in AWS CodeCommit and would like to add some issue tracking / project management to the repo. Currently AWS doesn&amp;rsquo;t offerin/ben-johnston-98085910/ any of its own services and thus we will need to hook in some 3rd party services such as Atlassian&amp;rsquo;s JIRA and GitHub. Connecting JIRA to CodeCommit is reasonably straightforward and if you would like to use AWS CodeStart templates there is good documentation available from both Atlassian as well as in the CodeStar setup process itself.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://benjohnston.info/about/</link>
+      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://benjohnston.info/about/</guid>
+      <description>Hugo is the world’s fastest framework for building websites. It is written in Go.
+It makes use of a variety of open source projects including:
+ https://github.com/russross/blackfriday https://github.com/alecthomas/chroma https://github.com/muesli/smartcrop https://github.com/spf13/cobra https://github.com/spf13/viper  Learn more and contribute on GitHub.</description>
+    </item>
+    
+  </channel>
+</rss>

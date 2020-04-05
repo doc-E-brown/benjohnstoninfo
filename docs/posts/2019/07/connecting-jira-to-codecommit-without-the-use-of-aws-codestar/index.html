@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="map[name:Ben Johnston]">
+<meta name="description" content="So you are hosting your git repo in AWS CodeCommit and would like to add some issue tracking / project management to the repo. Currently AWS doesn&amp;rsquo;t offerin/ben-johnston-98085910/ any of its own services and thus we will need to hook in some 3rd party services such as Atlassian&amp;rsquo;s JIRA and GitHub. Connecting JIRA to CodeCommit is reasonably straightforward and if you would like to use AWS CodeStart templates there is good documentation available from both Atlassian as well as in the CodeStar setup process itself." />
+<meta name="keywords" content="ben johnston CV blog post talks" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://benjohnston.info/posts/2019/07/connecting-jira-to-codecommit-without-the-use-of-aws-codestar/" />
+
+
+    <title>
+        
+            Connecting JIRA to codecommit without the use of AWS CodeStar :: Ben Johnston @ Home  — Ben::About&#43;Opinions&#43;Notes
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://benjohnston.info/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://benjohnston.info/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://benjohnston.info/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://benjohnston.info/favicon-16x16.png">
+    <link rel="manifest" href="https://benjohnston.info/site.webmanifest">
+    <link rel="mask-icon" href="https://benjohnston.info/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://benjohnston.info/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+<meta itemprop="name" content="Connecting JIRA to codecommit without the use of AWS CodeStar">
+<meta itemprop="description" content="So you are hosting your git repo in AWS CodeCommit and would like to add some issue tracking / project management to the repo. Currently AWS doesn&rsquo;t offerin/ben-johnston-98085910/ any of its own services and thus we will need to hook in some 3rd party services such as Atlassian&rsquo;s JIRA and GitHub. Connecting JIRA to CodeCommit is reasonably straightforward and if you would like to use AWS CodeStart templates there is good documentation available from both Atlassian as well as in the CodeStar setup process itself.">
+<meta itemprop="datePublished" content="2019-07-16T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-07-16T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="683">
+<meta itemprop="image" content="https://benjohnston.info"/>
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://benjohnston.info"/>
+
+<meta name="twitter:title" content="Connecting JIRA to codecommit without the use of AWS CodeStar"/>
+<meta name="twitter:description" content="So you are hosting your git repo in AWS CodeCommit and would like to add some issue tracking / project management to the repo. Currently AWS doesn&rsquo;t offerin/ben-johnston-98085910/ any of its own services and thus we will need to hook in some 3rd party services such as Atlassian&rsquo;s JIRA and GitHub. Connecting JIRA to CodeCommit is reasonably straightforward and if you would like to use AWS CodeStart templates there is good documentation available from both Atlassian as well as in the CodeStar setup process itself."/>
+
+
+
+
+
+    <meta property="article:published_time" content="2019-07-16 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://benjohnston.info/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ wget benjohnston.info</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#67a2c9;
+                   animation-duration:2s;">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://benjohnston.info/about/">about</a></li><li><a href="https://benjohnston.info/posts/">posts</a></li><li><a href="https://benjohnston.info/talks/">talks</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>4 minutes
+
+            
+
+            </p>
+        </div>
+
+        <article>
+            <h1 class="post-title">
+                <a href="https://benjohnston.info/posts/2019/07/connecting-jira-to-codecommit-without-the-use-of-aws-codestar/">Connecting JIRA to codecommit without the use of AWS CodeStar</a>
+            </h1>
+
+            
+
+            <div class="post-content">
+                <p>So you are hosting your git repo in AWS CodeCommit and would like to add some issue tracking / project management to the repo.  Currently AWS doesn&rsquo;t offerin/ben-johnston-98085910/ any of its own services and thus we will need to hook in some 3rd party services such as <a href="https://www.atlassian.com/software/jira">Atlassian&rsquo;s JIRA</a> and <a href="https://github.com/">GitHub</a>.   Connecting JIRA to CodeCommit is reasonably straightforward and if you would like to use AWS CodeStart templates there is good documentation available from both <a href="https://www.atlassian.com/blog/jira-software/jira-software-integrates-with-aws-codestar">Atlassian</a> as well as in the CodeStar setup process itself.</p>
+<p>One limitation of CodeStar at the moment is that it can only be used when setting up a fresh repository and cannot be used against an existing repo.  If this is the case or you simply do not want to use CodeStar for the issue tracking integration this post will walk through the process of setting up issue tracking without the use of CodeStar.</p>
+<p>To complete this process you will need:</p>
+<ul>
+<li>An AWS account with FullAccess permissions to CodeCommit</li>
+<li>An AWS account with SNS (Simple Notification Service) permissions</li>
+<li>Ideally an AWS account with permissions to setup additional users.</li>
+<li>A JIRA cloud instance with admin rights.  If you want to just try it out you can set up a trial account for free at <a href="https://www.atlassian.com/try">https://www.atlassian.com/try</a>.</li>
+</ul>
+<p>The process will assume:</p>
+<ul>
+<li>You have access to and have already setup the requirements listed above e.g. AWS accounts and JIRA cloud instances.</li>
+<li>A basic understanding AWS IAM roles.</li>
+</ul>
+<h2 id="lets-get-started">Let&rsquo;s get started.</h2>
+<p>We are first going to create a separate user with roles limited to CodeCommit in the spirit of principle of least privilege.</p>
+<ol>
+<li>Log into the Identify and Access Management (IAM) page of AWS.</li>
+<li>Click Add User</li>
+<li>Create a user with an appropriate user name and ensure the <strong>Programmatic access</strong> checkbox is ticked.
+<img src="https://benjohnston.info/assets/create_user.png" alt="create_user"></li>
+<li>Click Next: Permissions</li>
+<li>If you have existing permissions you would like to use select those.  If you are unsure add the <em>AWSCodeCommitPowerUser</em> and <em>AmazonSNSFullAccess</em> permissions, they will be enough to get you started.  The AWSCodeCommitPowerUser permissions are used to allow for branches, merges etc to be created or reviewed from JIRA.  The SNS permissions are required to allow the git integration app to setup the webhooks for you for automatic updates whenever a repo is touched.  <strong>You should review these permissions to ensure they are appropriate and satisfy security requirements</strong>.
+<img src="https://benjohnston.info/assets/user_perms.png" alt="user_perms"></li>
+<li>Add any tags you would like to attach to the user.</li>
+<li>Create the user.
+<img src="https://benjohnston.info/assets/add_user.png" alt="add_user"></li>
+<li>Download the CSV file or copy and paste the Access Key ID and Secret access key as you will need these later.
+<img src="https://benjohnston.info/assets/user_creds.png" alt="user_creds"></li>
+<li>Open your JIRA cloud instance click on the settings icon in the bottom left hand side of the screen.
+<img src="https://benjohnston.info/assets/jira_settings.png" alt="jira_settings"></li>
+<li>Click on the Apps section of the settings menu.</li>
+<li>Click on <strong>Find new apps</strong> and search for or simply select <strong>Git Integration for JIRA</strong>.  Note that <strong>Git Integration for JIRA</strong> is a paid app and can be used for a 7 day trial without restrictions or payment.
+<img src="https://benjohnston.info/assets/git_integration.png" alt="git_integration"></li>
+<li>Once the app is installed click on the connect to repository drop down menu and select AWS CodeCommit
+<img src="https://benjohnston.info/assets/add_repo.png" alt="add_repo"></li>
+<li>Enter the AWS CodeCommit region for the repo you would like to connect to as well as the AWS Access Key and Secret access key that you created for the user above.
+<img src="https://benjohnston.info/assets/code_commit_creds.png" alt="code_commit_creds"></li>
+<li>Click Next.</li>
+<li>Confirm the list of repositorys discovered by JIRA is what you would expect for the connection.  Click Next.</li>
+<li>In the next screen you can choose some project permissions.  If you would like all JIRA projects access to the CodeCommit repos just click Next.  If you would like to grant access to the repos to a list of specific JIRA projects untick the check box and type the name of the projects in the field shown below.</li>
+</ol>
+<p><img src="https://benjohnston.info/assets/proj_perms.png" alt="proj_perms"></p>
+<h2 id="et-voila">Et Voila!!!</h2>
+<p>At this job JIRA is hooked into the CodeCommit and you should notice that the git integration app is indexing your repos.</p>
+<p><img src="https://benjohnston.info/assets/git_index.png" alt="git_index"></p>
+<p>If you have any commits in your git repo referencing existing issues you will notice that these commits and branches start to show up in your issues.</p>
+<p><img src="https://benjohnston.info/assets/issue_commits.png" alt="issue_commits"></p>
+<p>Try creating a commit with a issue reference and you will notice it shows up in the JIRA ticket!!</p>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>683 Words</p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2019-07-16 00:00 &#43;0000</p>
+        </div>
+
+        
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2020</span>
+            
+                <span><a href="https://benjohnston.info">Ben Johnston</a></span>
+            
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span> <a href="https://benjohnston.info/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://benjohnston.info/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
+
+
+
+    </body>
+</html>

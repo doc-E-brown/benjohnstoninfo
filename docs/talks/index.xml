@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Talks on Ben Johnston @ Home</title>
+    <link>https://benjohnston.info/talks/</link>
+    <description>Recent content in Talks on Ben Johnston @ Home</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 30 Mar 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://benjohnston.info/talks/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>USYD Biomed Engineering Guest Lecture</title>
+      <link>https://benjohnston.info/talks/2020/03/usyd-biomed-engineering-guest-lecture/</link>
+      <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://benjohnston.info/talks/2020/03/usyd-biomed-engineering-guest-lecture/</guid>
+      <description>About Me Education  USYD Alumni - Eng. (Mechatronics) + Med Sc. PhD candidate (finishing this year 🤞)  Professional  BTI (Co-founder) Cochlear (Snr Mechatronics Engineer) ResMed (Snr Design Engineer) Harrison.ai (Snr AI Engineer) Author - Data Science and ML books  Applied Supervised Learning in Python Applied Unsupervised Learning in Python SQL for Data Analytics    https://www.harrison.ai/
+Harrison.ai is a clinician-led healthcare artificial intelligence (AI) company. Our mission is to continuously innovate and commercialise more efficient and affordable healthcare products and services for healthcare providers and patients.</description>
+    </item>
+    
+  </channel>
+</rss>
