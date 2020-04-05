@@ -5,8 +5,6 @@ date:  Tue 30 Mar 09:30:00 AEDT 2020
 categories: talks USYD uni guest lecture 
 ---
 
-# {{ page.title }}
-
 ## About Me
 
 ### Education
