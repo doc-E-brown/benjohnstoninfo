@@ -1,13 +1,11 @@
 ---
 layout: post
 title: USYD Biomed Guest Lecture
-date:  Sun  5 Apr 01:30:34 AEDT 2020
+date:  Tue 30 Mar 09:30:00 AEDT 2020
 categories: talks USYD uni guest lecture 
 ---
 
-# USYD Biomed Guest Lecture
-**Ben Johnston**
-*31st March 2020*
+# {{ page.title }}
 
 ## About Me
 
